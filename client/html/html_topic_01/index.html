@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Source Sans Pro,Calibri,Candara,Arial,sans-serif:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="介绍首先参考桑大书总结的内容(链接)，非常的详细，只是没有说明。更多内容请参考底部其他资源，里面有更详细的介绍。 基础有些东西必须的需要加入页面head，无所谓可以不用放在代码里。 html实例一个简单的 HTML 文档，带有最基本的必需的元素：1234567891011&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;title&amp;gt;文档的标题&amp;lt;/title&amp;gt;&amp;lt;/h">
+<meta name="keywords" content="HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你并不真正了解的HTML HEAD">
+<meta property="og:url" content="http://stevenstar.github.io/client/html/html_topic_01/index.html">
+<meta property="og:site_name" content="王俊星的博客">
+<meta property="og:description" content="介绍首先参考桑大书总结的内容(链接)，非常的详细，只是没有说明。更多内容请参考底部其他资源，里面有更详细的介绍。 基础有些东西必须的需要加入页面head，无所谓可以不用放在代码里。 html实例一个简单的 HTML 文档，带有最基本的必需的元素：1234567891011&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;title&amp;gt;文档的标题&amp;lt;/title&amp;gt;&amp;lt;/h">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-09T07:20:54.396Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你并不真正了解的HTML HEAD">
+<meta name="twitter:description" content="介绍首先参考桑大书总结的内容(链接)，非常的详细，只是没有说明。更多内容请参考底部其他资源，里面有更详细的介绍。 基础有些东西必须的需要加入页面head，无所谓可以不用放在代码里。 html实例一个简单的 HTML 文档，带有最基本的必需的元素：1234567891011&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;title&amp;gt;文档的标题&amp;lt;/title&amp;gt;&amp;lt;/h">
+
+
+
+
+
+
+  <link rel="canonical" href="http://stevenstar.github.io/client/html/html_topic_01/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>你并不真正了解的HTML HEAD | 王俊星的博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王俊星的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">为了生活编程，编程改变生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />站点地图</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://stevenstar.github.io/client/html/html_topic_01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="steven.wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/4902693">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王俊星的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你并不真正了解的HTML HEAD
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-27 16:14:28" itemprop="dateCreated datePublished" datetime="2017-05-27T16:14:28+08:00">2017-05-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-09 15:20:54" itemprop="dateModified" datetime="2018-05-09T15:20:54+08:00">2018-05-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/client/html/html_topic_01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="client/html/html_topic_01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>首先参考桑大书总结的内容(<a href="https://cnodejs.org/topic/5718e5685a26c4a841ecbbb6" target="_blank" rel="noopener">链接</a>)，非常的详细，只是没有说明。更多内容请参考底部其他资源，里面有更详细的介绍。</p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>有些东西必须的需要加入页面head，无所谓可以不用放在代码里。</p>
+<h2 id="html实例"><a href="#html实例" class="headerlink" title="html实例"></a>html实例</h2><p>一个简单的 HTML 文档，带有最基本的必需的元素：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;title&gt;文档的标题&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  文档的内容... ...</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h2><p><code>&lt;head&gt;</code> 标签用于定义文档的头部，它是所有头部元素的容器。<code>&lt;head&gt;</code> 中的元素可以引用脚本、指示浏览器在哪里找到样式表、提供元信息等等。<br>文档的头部描述了文档的各种属性和信息，包括文档的标题、在 Web 中的位置以及和其他文档的关系等。绝大多数文档头部包含的数据都不会真正作为内容显示给读者。<br>下面这些标签可用在 head 部分：<code>&lt;base&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;meta&gt;</code>, <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code>, 以及 <code>&lt;title&gt;</code>。<br><code>&lt;title&gt;</code> 定义文档的标题，它是 head 部分中唯一必需的元素。</p>
+<h2 id="常用head"><a href="#常用head" class="headerlink" title="常用head"></a>常用head</h2><h3 id="title-标签"><a href="#title-标签" class="headerlink" title="title 标签"></a>title 标签</h3><p>每个页面职能有一个标题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面的标题，必填项，如果没有，对于不同浏览器有不同的填法。 --&gt;</span><br><span class="line">&lt;title&gt;Hello World!&lt;/title&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Meta-标签"><a href="#Meta-标签" class="headerlink" title="Meta 标签"></a>Meta 标签</h3><p>提供搜索引擎关于页面内的重要资讯,常用有两个，description和keywords。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- name 属性 --&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;网站的描述。。。&quot; /&gt;</span><br><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;关键字。。。&quot; /&gt;</span><br><span class="line">&lt;meta name=&quot;author&quot; content=&quot;作者名称。。。&quot; /&gt;</span><br><span class="line">&lt;meta name=&quot;generator&quot; content=&quot;网页编辑器名称。。。&quot; /&gt;</span><br><span class="line">&lt;meta name=&quot;copyright&quot; content=&quot;网页的版权或著作权声明。。。&quot; /&gt;</span><br><span class="line">&lt;meta name=&quot;distribution&quot; content=&quot;网页的发布地区。。。&quot; /&gt;</span><br><span class="line">&lt;!-- 页面宽度和缩放 --&gt;</span><br><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot; /&gt;</span><br><span class="line">&lt;!-- http-equiv 常用屬性 --&gt;</span><br><span class="line">&lt;!-- 1. 网页内容的种类以及编码 --&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=uft-8&quot; /&gt;</span><br><span class="line">&lt;!-- 2. 网页使用的语言种类 --&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Language&quot; content=&quot;zh-TW&quot;&gt;</span><br><span class="line">&lt;!-- 3. 自动更新网页的时间 --&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Refresh&quot; content=&quot;10&quot;&gt;</span><br><span class="line">&lt;!-- 4. 禁止浏览器用快取开启网页 --&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot;&gt;</span><br><span class="line">&lt;!-- 5. 强制再单一视窗中显示网页 --&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;windows-Target&quot; content=&quot;_top&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 为了万恶的IE，使用X-UA-Compatible。告诉IE要用最新的版本，如果用户安装chrome，就用Google Chrome Frame!如果不加入这行可能会在一些需要认证的网站出现错误 --&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Link-标签"><a href="#Link-标签" class="headerlink" title="Link 标签"></a>Link 标签</h3><p>用来控制网页内与外部资源的关联<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 网址上面的小图标,一般浏览器会去根目录寻找favicon.ico。 --&gt;</span><br><span class="line">&lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;</span><br><span class="line">&lt;!-- 载入css --&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/your-css.css&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Style-标签"><a href="#Style-标签" class="headerlink" title="Style 标签"></a>Style 标签</h3><p>用来定义网页所使用的style,如css样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    body &#123;</span><br><span class="line">        font-size: 13px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Script标签"><a href="#Script标签" class="headerlink" title="Script标签"></a>Script标签</h3><p>用来使用网页script或嵌入外部script，如JavaScript或VBScript<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 载入javascript --&gt;</span><br><span class="line">&lt;script src=&quot;js/your-script.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="不常用head"><a href="#不常用head" class="headerlink" title="不常用head"></a>不常用head</h2><h3 id="Base-标签"><a href="#Base-标签" class="headerlink" title="Base 标签"></a>Base 标签</h3><p>用来指定网页内URL的目标<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;base url=&quot;/&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Noscript-标签"><a href="#Noscript-标签" class="headerlink" title="Noscript 标签"></a>Noscript 标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;noscript&gt;&lt;!--no JS alternative--&gt;&lt;/noscript&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="html5新增的meta功能"><a href="#html5新增的meta功能" class="headerlink" title="html5新增的meta功能"></a>html5新增的meta功能</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面编码，一般不指定页面的编码时，浏览器根据服务器送来的header或者用其他方法判定，现在常用的编码方式为utf-8。 --&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="客户端必备"><a href="#客户端必备" class="headerlink" title="客户端必备"></a>客户端必备</h1><h3 id="苹果ios"><a href="#苹果ios" class="headerlink" title="苹果ios"></a>苹果ios</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 1.禁止数字拨号 --&gt;</span><br><span class="line">&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;</span><br><span class="line">&lt;!-- 2. 设置标题 --&gt;</span><br><span class="line">&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;My App&quot;&gt;</span><br><span class="line">&lt;!-- 3. 开启全屏运行 --&gt;</span><br><span class="line">&lt;meta name=&quot;apple-touch-fullscreen&quot; content=&quot;yes&quot;&gt;</span><br><span class="line">&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;</span><br><span class="line">&lt;!-- 4. 设置状态栏的样式 --&gt;</span><br><span class="line">&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;&gt;</span><br><span class="line">&lt;!-- 5. 小图标 --&gt;</span><br><span class="line">&lt;link rel=&quot;apple-touch-icon&quot; href=&quot;/path/to/apple-touch-icon.png&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Google-Android"><a href="#Google-Android" class="headerlink" title="Google Android"></a>Google Android</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;theme-color&quot; content=&quot;#E64545&quot;&gt;</span><br><span class="line">&lt;!-- 添加到主屏幕 --&gt;</span><br><span class="line">&lt;meta name=&quot;mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;</span><br><span class="line">&lt;!-- More info: https://developer.chrome.com/multidevice/android/installtohomescreen --&gt;</span><br><span class="line">&lt;meta name=&quot;google-play-app&quot; content=&quot;app-id=package-name&quot;&gt;</span><br><span class="line">&lt;link rel=&quot;alternate&quot; href=&quot;android-app://package-name/http/url-sample.com&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="360浏览器"><a href="#360浏览器" class="headerlink" title="360浏览器"></a>360浏览器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- select rendering engine in order --&gt;</span><br><span class="line">&lt;meta name=&quot;renderer&quot; content=&quot;webkit|ie-comp|ie-stand&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="QQ浏览器"><a href="#QQ浏览器" class="headerlink" title="QQ浏览器"></a>QQ浏览器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Locks the screen into the specified orientation --&gt;</span><br><span class="line">&lt;meta name=&quot;x5-orientation&quot; content=&quot;landscape/portrait&quot;&gt;</span><br><span class="line">&lt;!-- Display this page in fullscreen --&gt;</span><br><span class="line">&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;</span><br><span class="line">&lt;!-- Page will be displayed in &quot;application mode&quot;(fullscreen,etc.) --&gt;</span><br><span class="line">&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="UC浏览器"><a href="#UC浏览器" class="headerlink" title="UC浏览器"></a>UC浏览器</h3><p><a href="http://www.uc.cn/download/UCBrowser_U3_API.doc" target="_blank" rel="noopener">uc浏览器文档</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Locks the screen into the specified orientation --&gt;</span><br><span class="line">&lt;meta name=&quot;screen-orientation&quot; content=&quot;landscape/portrait&quot;&gt;</span><br><span class="line">&lt;!-- Display this page in fullscreen --&gt;</span><br><span class="line">&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;</span><br><span class="line">&lt;!-- UC browser will display images even if in &quot;text mode&quot; --&gt;</span><br><span class="line">&lt;meta name=&quot;imagemode&quot; content=&quot;force&quot;&gt;</span><br><span class="line">&lt;!-- Page will be displayed in &quot;application mode&quot;(fullscreen,forbiding gesture, etc.) --&gt;</span><br><span class="line">&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;&gt;</span><br><span class="line">&lt;!-- Disabled the UC browser&apos;s &quot;night mode&quot; in this page --&gt;</span><br><span class="line">&lt;meta name=&quot;nightmode&quot; content=&quot;disable&quot;&gt;</span><br><span class="line">&lt;!-- Simplify the page to reduce data transfer --&gt;</span><br><span class="line">&lt;meta name=&quot;layoutmode&quot; content=&quot;fitscreen&quot;&gt;</span><br><span class="line">&lt;!-- Disable the UC browser&apos;s feature of &quot;scaling font up when there are many words in this page&quot; --&gt;</span><br><span class="line">&lt;meta name=&quot;wap-font-scale&quot; content=&quot;no&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="其他资源"><a href="#其他资源" class="headerlink" title="其他资源"></a>其他资源</h1><ul>
+<li><a href="https://github.com/joshbuchea/HEAD" target="_blank" rel="noopener">非常详细的整理</a></li>
+<li><a href="https://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/html.md" target="_blank" rel="noopener">HTML5 Boilerplate Docs: The HTML</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/pay-weixin.jpg" alt="steven.wang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay-zhifubao.jpg" alt="steven.wang 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/database/mysql_topic_1/" rel="next" title="MYSQL 学习笔记">
+                <i class="fa fa-chevron-left"></i> MYSQL 学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/tools/开始我的博客/" rel="prev" title="开始我的博客">
+                开始我的博客 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars2.githubusercontent.com/u/4902693"
+                alt="steven.wang" />
+            
+              <p class="site-author-name" itemprop="name">steven.wang</p>
+              <p class="site-description motion-element" itemprop="description">我是一名前端工程师，专注学习各种编程语言</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/StevenStar" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础"><span class="nav-number">2.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html实例"><span class="nav-number">2.1.</span> <span class="nav-text">html实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义和用法"><span class="nav-number">2.2.</span> <span class="nav-text">定义和用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用head"><span class="nav-number">2.3.</span> <span class="nav-text">常用head</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#title-标签"><span class="nav-number">2.3.1.</span> <span class="nav-text">title 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Meta-标签"><span class="nav-number">2.3.2.</span> <span class="nav-text">Meta 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Link-标签"><span class="nav-number">2.3.3.</span> <span class="nav-text">Link 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Style-标签"><span class="nav-number">2.3.4.</span> <span class="nav-text">Style 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Script标签"><span class="nav-number">2.3.5.</span> <span class="nav-text">Script标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不常用head"><span class="nav-number">2.4.</span> <span class="nav-text">不常用head</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Base-标签"><span class="nav-number">2.4.1.</span> <span class="nav-text">Base 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Noscript-标签"><span class="nav-number">2.4.2.</span> <span class="nav-text">Noscript 标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html5新增的meta功能"><span class="nav-number">2.5.</span> <span class="nav-text">html5新增的meta功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端必备"><span class="nav-number">3.</span> <span class="nav-text">客户端必备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#苹果ios"><span class="nav-number">3.0.1.</span> <span class="nav-text">苹果ios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google-Android"><span class="nav-number">3.0.2.</span> <span class="nav-text">Google Android</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#360浏览器"><span class="nav-number">3.0.3.</span> <span class="nav-text">360浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QQ浏览器"><span class="nav-number">3.0.4.</span> <span class="nav-text">QQ浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UC浏览器"><span class="nav-number">3.0.5.</span> <span class="nav-text">UC浏览器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他资源"><span class="nav-number">4.</span> <span class="nav-text">其他资源</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">true</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://stevenstar.github.io/client/html/html_topic_01/';
+        this.page.identifier = 'client/html/html_topic_01/';
+        this.page.title = '你并不真正了解的HTML HEAD';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

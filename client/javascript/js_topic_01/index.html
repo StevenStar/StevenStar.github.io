@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Source Sans Pro,Calibri,Candara,Arial,sans-serif:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="web发展史 mosaic是互联网历史上第一个获普遍使用和能后显示图片的网页浏览器，于1993年问世。 最初叫LiveScript   浏览器的组成部分shell部分内核部分渲染引擎（语法规则和渲染）js引擎其他 js引擎2001年发布ie6， 首次实现对js引擎的优化和分离2008年google发布最新浏览器chrome，它采用优化后的javascript引擎，代号v8，因能把js代码直接转化为">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 学习笔记">
+<meta property="og:url" content="http://stevenstar.github.io/client/javascript/js_topic_01/index.html">
+<meta property="og:site_name" content="王俊星的博客">
+<meta property="og:description" content="web发展史 mosaic是互联网历史上第一个获普遍使用和能后显示图片的网页浏览器，于1993年问世。 最初叫LiveScript   浏览器的组成部分shell部分内核部分渲染引擎（语法规则和渲染）js引擎其他 js引擎2001年发布ie6， 首次实现对js引擎的优化和分离2008年google发布最新浏览器chrome，它采用优化后的javascript引擎，代号v8，因能把js代码直接转化为">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-17T02:33:14.877Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS 学习笔记">
+<meta name="twitter:description" content="web发展史 mosaic是互联网历史上第一个获普遍使用和能后显示图片的网页浏览器，于1993年问世。 最初叫LiveScript   浏览器的组成部分shell部分内核部分渲染引擎（语法规则和渲染）js引擎其他 js引擎2001年发布ie6， 首次实现对js引擎的优化和分离2008年google发布最新浏览器chrome，它采用优化后的javascript引擎，代号v8，因能把js代码直接转化为">
+
+
+
+
+
+
+  <link rel="canonical" href="http://stevenstar.github.io/client/javascript/js_topic_01/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JS 学习笔记 | 王俊星的博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王俊星的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">为了生活编程，编程改变生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />站点地图</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />公益 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://stevenstar.github.io/client/javascript/js_topic_01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="steven.wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/4902693">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王俊星的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS 学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-15 16:14:28" itemprop="dateCreated datePublished" datetime="2019-01-15T16:14:28+08:00">2019-01-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-17 10:33:14" itemprop="dateModified" datetime="2019-01-17T10:33:14+08:00">2019-01-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/client/javascript/js_topic_01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="client/javascript/js_topic_01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="web发展史"><a href="#web发展史" class="headerlink" title="web发展史"></a>web发展史</h1><ul>
+<li>mosaic是互联网历史上第一个获普遍使用和能后显示图片的网页浏览器，于1993年问世。</li>
+<li>最初叫LiveScript</li>
+</ul>
+<ol>
+<li>浏览器的组成部分<br>shell部分<br>内核部分<br>渲染引擎（语法规则和渲染）<br>js引擎<br>其他</li>
+<li>js引擎<br>2001年发布ie6， 首次实现对js引擎的优化和分离<br>2008年google发布最新浏览器chrome，它采用优化后的javascript引擎，代号v8，因能把js代码直接转化为机械码执行，进而以速度快而闻名<br>后Firefox也推出了具备强大功能的js引擎<br>Firefox3.5 TranceMonkey（对频繁执行的代码做了路径优化）<br>Firefox4.0 leagerMonkey</li>
+</ol>
+<h1 id="学习-JS"><a href="#学习-JS" class="headerlink" title="学习 JS"></a>学习 JS</h1><h2 id="JS-介绍"><a href="#JS-介绍" class="headerlink" title="JS 介绍"></a>JS 介绍</h2><ol>
+<li>JS 的特性<br>解释性语言 –不需要编译成文件（跨平台）<br>单线程<br>ECMA标注  – <code>ECMAScript</code></li>
+<li>JS 执行队列<br>js执行主线程<br>task,1ms &lt;- task2,1ms &lt;- task2,1ms &lt;- task1,1ms …<br>轮转时间片：类似吃饭</li>
+<li>JS 的三大部分<br>JavaScript，dom，bom</li>
+<li>主流浏览器及其内核<br>ie                  trident<br>chrome                 webkit/blink<br>Firefox               Gecko<br>opera                 presto<br>safar               webkit</li>
+<li>如何引入 .js<br>页面引用<script></script><br>外部引用 <script src="index.js"></script><br>– 为符合web标准（w3c标准中的一项）结构、央视、行为相分离，通常采用外部引入<h2 id="JS-基本语法"><a href="#JS-基本语法" class="headerlink" title="JS 基本语法"></a>JS 基本语法</h2></li>
+<li><p>变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var	a,</span><br><span class="line">	b,</span><br><span class="line">	c,</span><br><span class="line">	d,</span><br><span class="line">	e; // 变量声明</span><br><span class="line">a = 100; // 赋值</span><br><span class="line">a = 200; // 覆盖</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命名规则<br>变量名必须以英文字母、_、$开头<br>变量名可以包括英文字母、_、$、数字<br>不可以用系统的关键字、保留字作为变量名</p>
+</li>
+<li><p>值类型 – 数据类型<br>不可改变的原始值   stack(栈数据)<br>Number, Boolean, String, undefied, null<br>引用值 heap(堆数据)<br>array，object，function 。。。 date RegExp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [1,2];</span><br><span class="line">var arr2 = arr1;</span><br><span class="line">arr1 = [2,3]</span><br><span class="line">console.log(arr2);    // [1,2]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基本语法<br>语句后面要用分号结束<br>js语法错误会引发后续代码终止，但不会影响其他js代码块<br>书写格式要规范， ”=+/-“两边都应该有空格</p>
+</li>
+<li>js 运算符<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// &quot;+&quot; 1. 数学运算、字符串连接， 2. 任何数据类型加字符串都等于字符串</span><br><span class="line">// &quot;-&quot; ，&quot;*&quot;，&quot;/&quot;，&quot;%&quot;，&quot;=&quot;，&quot;()&quot;</span><br><span class="line">// 优先级&quot;=”最弱，“()“优先级较高</span><br><span class="line">// &quot;++&quot;，&quot;--&quot;，&quot;+=&quot;，&quot;-=&quot;，&quot;/=&quot;，&quot;*=&quot;，&quot;%=&quot;</span><br><span class="line">console.log(1/0); // Infinity</span><br><span class="line">console.log(0/0); //NaN</span><br><span class="line">// 比较运算符： &gt;，&lt;， ==，&gt;=，&lt;=，!=    比较的结构为boolean值</span><br><span class="line">// 逻辑预算符：&amp;&amp;，||，!    运算结果为真实的值</span><br><span class="line">// 被认定为false的值：undefined,null,NaN,&quot;&quot;,0,false</span><br><span class="line">console.log(NaN == NaN);    // false</span><br><span class="line">console.log(undefied == undefined); // true</span><br><span class="line">console.log(0 &amp;&amp; 2 + 2); // 0</span><br><span class="line">console.log(1 &amp;&amp; 2); // 2    先看第一个表达式转换成布尔值的结果，如果第一个结果为真，那么它会看第二个表达式的值返回</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if, if else if</span><br><span class="line">if &lt;--&gt; &amp;&amp; 转换</span><br><span class="line">for</span><br><span class="line">while, do while</span><br></pre></td></tr></table></figure>
+<h2 id="条件语句补充"><a href="#条件语句补充" class="headerlink" title="条件语句补充"></a>条件语句补充</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">switch case</span><br><span class="line">break;</span><br><span class="line">continue;</span><br></pre></td></tr></table></figure>
+<h2 id="初识引用值"><a href="#初识引用值" class="headerlink" title="初识引用值"></a>初识引用值</h2><ol>
+<li>数组</li>
+<li>对象</li>
+</ol>
+<h2 id="编程形式的区别"><a href="#编程形式的区别" class="headerlink" title="编程形式的区别"></a>编程形式的区别</h2><ol>
+<li>面向过程</li>
+<li>面向对象</li>
+</ol>
+<h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><p>六种数据类型 number, string, boolean, undefined, object, function</p>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><ol>
+<li><p>显示类型转换<br><code>Number(mix)</code><br><code>parseInt(string, radix)</code><br><code>parseFloat(string)</code><br><code>toString(radix)</code><br><code>String(mix)</code><br><code>Boolean()</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Number(&apos;123&apos;); // number</span><br><span class="line">Number(&apos;a&apos;); // NaN</span><br><span class="line">Number(undefined); // NaN</span><br><span class="line">Number(null); // 0</span><br><span class="line">parseInt(123.9); // 123</span><br><span class="line">parseInt(&apos;10&apos;, 16); // 16</span><br><span class="line">var num = 10;</span><br><span class="line">num.toString(8); // 12</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>隐形类型转换<br><code>isNaN()</code><br><code>++</code> <code>/</code> <code>--</code> <code>+/</code><br><code>+</code><br><code>-</code> <code>*</code> <code>/</code> <code>%</code><br><code>&amp;&amp;</code> <code>||</code> <code>!</code><br><code>&lt;</code> <code>&gt;</code> <code>&lt;=</code> <code>&gt;=</code><br><code>==</code> <code>!=</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">isNaN(123); // false</span><br><span class="line">isNaN(NaN); // true</span><br><span class="line">isNaN(&apos;abc&apos;); // true</span><br><span class="line">isNaN(undefined); // true</span><br><span class="line">isNaN(null); // false</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ol>
+<li><p>定义<br>函数声明<br>函数表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function test1() &#123;</span><br><span class="line">	console.log(&apos;hello world&apos;);</span><br><span class="line">&#125;</span><br><span class="line">var test2 = function() &#123;</span><br><span class="line">	// ...</span><br><span class="line">&#125;</span><br><span class="line">var test3 = function abc() &#123; //  除了test3.name是abc，其他无区别</span><br><span class="line">	// ...</span><br><span class="line">&#125;</span><br><span class="line">function add(a, b) &#123; // 形式参数  -- 形参</span><br><span class="line">	console.log(arguments) // 实参列表</span><br><span class="line">	return a + b;</span><br><span class="line">&#125;</span><br><span class="line">add(1, 2); // 实际参数 -- 实参</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组成形式<br>函数名称<br>参数<br>– 形参<br>– 实参<br>– 返回值</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>变量（变量作用域又称上下文）和函数生效（能被访问）的区域<br>全局、局部变量<br>作用域的访问顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var aaa = 123;</span><br><span class="line">function test() &#123;</span><br><span class="line">	function b() &#123;</span><br><span class="line">		var bbb = 234;</span><br><span class="line">		console.log(aaa)</span><br><span class="line">	&#125;</span><br><span class="line">	return b;</span><br><span class="line">&#125;</span><br><span class="line">var glob = 100;</span><br><span class="line">var demo = a();</span><br><span class="line">demo();</span><br><span class="line">//</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>当内部函数被保存到外部时，将会生成闭包。闭包会导致原有作用域链不释放，造成内存泄漏。</p>
+<ol>
+<li><p>作用<br>实现公有变量，eg：函数累加器<br>可以做缓存（存储结构），eg：eater<br>可以实现封装，属性私有化。eg：Person()<br>模块化开发，防止污染全局变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">function add() &#123;</span><br><span class="line">	var count = 0;</span><br><span class="line">	function demo() &#123;</span><br><span class="line">		count++;</span><br><span class="line">		console.log(count);</span><br><span class="line">	&#125;</span><br><span class="line">	return demo;</span><br><span class="line">&#125;</span><br><span class="line">var counter = add();</span><br><span class="line">counter();</span><br><span class="line">counter();</span><br><span class="line">counter();</span><br><span class="line"></span><br><span class="line">function test() &#123;</span><br><span class="line">	var num = 100;</span><br><span class="line">	function a() &#123;</span><br><span class="line">		num++;</span><br><span class="line">		console.log(num);</span><br><span class="line">	&#125;</span><br><span class="line">	function b() &#123;</span><br><span class="line">		num--;</span><br><span class="line">		console.log(num);</span><br><span class="line">	&#125;</span><br><span class="line">	return [a, b];</span><br><span class="line">&#125;</span><br><span class="line">var arr = test();</span><br><span class="line">arr[0]();</span><br><span class="line">arr[1]();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>立即执行函数<br>此类函数没有声明，在一次执行过后释放。适合做初始化工作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">// (function() &#123;&#125;()); // w3c推荐使用</span><br><span class="line">// (function() &#123;&#125;)();</span><br><span class="line">// 只有表达式才能被执行符号执行</span><br><span class="line">// var test = function () &#123;&#125;();</span><br><span class="line">// + - ! function test() &#123;&#125;();</span><br><span class="line"></span><br><span class="line">function test() &#123;</span><br><span class="line">	var arr = [];</span><br><span class="line">	for (var i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">		(function(j) &#123;</span><br><span class="line">			arr[j] = function() &#123;</span><br><span class="line">				console.log(j);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;(i))</span><br><span class="line">	&#125;</span><br><span class="line">	return arr;</span><br><span class="line">&#125;</span><br><span class="line">var myArr = test();</span><br><span class="line">for (var j = 0; j &lt; 10; j++) &#123;</span><br><span class="line">	myArr[j]();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 针对初始化功能的函数</span><br><span class="line">((function abc() &#123;</span><br><span class="line">	var a = 123;</span><br><span class="line">	var b = 234;</span><br><span class="line">	console.log(a + b);</span><br><span class="line">&#125;)())</span><br><span class="line">console.log(abc);  // 执行完立即销毁</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 100;</span><br><span class="line">function demo(e) &#123;</span><br><span class="line">	function e() &#123;&#125;</span><br><span class="line">	arguments[0] = 2;</span><br><span class="line">	console.log(e);</span><br><span class="line">	if (a) &#123;</span><br><span class="line">		var b = 123;</span><br><span class="line">		function c() &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	var c;</span><br><span class="line">	a = 10;</span><br><span class="line">	var a;</span><br><span class="line">	console.log(b);</span><br><span class="line">	f = 123;</span><br><span class="line">	console.log(c)</span><br><span class="line">	console.log(a)</span><br><span class="line">&#125;</span><br><span class="line">var a;</span><br><span class="line">demo(1);</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(f);  // 2 undefined undefined 10 100 123</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>防范<br>闭包会导致多个执行函数共有一个公有变量，如果不是特殊需要，应尽量防止这种情况发生<br>4.js 运行三部曲<br>语法分析<br>预编译<br>解释执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 函数声明整体提升</span><br><span class="line">// 变量 声明提升</span><br><span class="line">var a = 123;</span><br><span class="line">function test() &#123;</span><br><span class="line">	// ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>预编译前奏<br>imply global暗示全局变量：即任何变量，如果变量未经声明就赋值，此变量就称为全局变量所有。eg：a = 123;var a = b = 123;<br>一切声明的全局变量，全是window的属性。eg：var a = 123; –&gt; window.a = 123</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function test() &#123;</span><br><span class="line">	var a = b = 123;</span><br><span class="line">&#125;</span><br><span class="line">test();  // window.a undefined, window.b 123;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>预编译四部曲<br>创建AO对象(Activation Obejct)(执行期上下文)<br>找形参和变量声明，将变量和形参名作为AO属性名，值为undefined<br>将实参值和形参统一<br>在函数体里面找函数声明，值赋予函数体</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">function fn(a) &#123;</span><br><span class="line">	console.log(a);         // function a() &#123;&#125;</span><br><span class="line">	var a = 123;</span><br><span class="line">	console.log(a);         // 123</span><br><span class="line">	function a() &#123;&#125;</span><br><span class="line">	console.log(a);         // 123</span><br><span class="line">	var b = function() &#123;&#125;</span><br><span class="line">	console.log(b);         // function () &#123;&#125;</span><br><span class="line">	function d() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">fn(1);</span><br><span class="line"></span><br><span class="line">function test(a, b) &#123;</span><br><span class="line">	console.log(a);       // 1</span><br><span class="line">	c = 0;</span><br><span class="line">	var c;</span><br><span class="line">	a = 3;</span><br><span class="line">	b = 2;</span><br><span class="line">	console.log(b);        // 2</span><br><span class="line">	function b() &#123;&#125;</span><br><span class="line">	function d() &#123;&#125;</span><br><span class="line">	console.log(b);        // 2</span><br><span class="line">&#125;</span><br><span class="line">test(1);</span><br><span class="line"></span><br><span class="line">function test1(a, b) &#123;</span><br><span class="line">	console.log(a); // function() &#123;&#125;</span><br><span class="line">	console.log(b); // undefined</span><br><span class="line">	var b = 234;</span><br><span class="line">	console.log(b); // 234</span><br><span class="line">	a = 123;</span><br><span class="line">	console.log(a); // 123</span><br><span class="line">	function a() &#123;&#125;</span><br><span class="line">	var a;</span><br><span class="line">	b = 234;</span><br><span class="line">	var b = function () &#123;&#125;</span><br><span class="line">	console.log(a);  // 123</span><br><span class="line">	console.log(b); // fn</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">global = 100;</span><br><span class="line">function fn() &#123;</span><br><span class="line">	console.log(global);</span><br><span class="line">	global = 200;</span><br><span class="line">	console.log(global);</span><br><span class="line">	var global = 300;</span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br><span class="line">var global;   // undefined  200</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function test() &#123;</span><br><span class="line">	console.log(b);</span><br><span class="line">	if (a) &#123;</span><br><span class="line">		var b = 100;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(b);</span><br><span class="line">	c = 234;</span><br><span class="line">	console.log(c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var a;</span><br><span class="line">test();</span><br><span class="line">a = 10;</span><br><span class="line">console.log(b);  // undefined undefined 234 234</span><br><span class="line"></span><br><span class="line">function bar() &#123;</span><br><span class="line">	return foo;</span><br><span class="line">	foo = 10;</span><br><span class="line">	function foo() &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	var foo = 11;</span><br><span class="line">&#125;</span><br><span class="line">console.log(bar()) // function foo() &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="作用域精解"><a href="#作用域精解" class="headerlink" title="作用域精解"></a>作用域精解</h2><p>[[scope]]：每个js函数都是一个对象，对象中有些属性我们可以访问，但有些不可以，这些属性仅供js引擎存取，[[scope]]就是其中一个。[[scope]]指的就是我们所说的作用域，其中存储了运行期上下文的集合<br>作用域链：[[scope]]中所存储的执行期上下文对象的集合，这个集合呈链式链接，我们把这种链式链接叫做作用域链<br>运行期上下文：当函数执行时，会创建一个成为执行器上下文的内部对象。一个执行期上下文定义了一个函数执行时的环境，函数每次执行时对应的执行上下文都是独一无二的，所以多次调用一个函数会导致船桨多个执行上下文，当函数执行完毕，他所产生的执行上下文被销毁。<br>查找变量：从作用域链的顶端依次向下查找。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function a () &#123;</span><br><span class="line">	function b() &#123;</span><br><span class="line">		var b = 234;</span><br><span class="line">	&#125;</span><br><span class="line">	var a = 123;</span><br><span class="line">	b();</span><br><span class="line">&#125;</span><br><span class="line">var glob = 100;</span><br><span class="line">a();</span><br><span class="line">// a defined a.[[scope]] --&gt; 0 : GO &#123;&#125;</span><br><span class="line">// a doing   a.[[scope]] --&gt; 0 : GO &#123;&#125;</span><br><span class="line">// 							1 : AO &#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function a() &#123;</span><br><span class="line">	function b() &#123;</span><br><span class="line">		var bbb = 234;</span><br><span class="line">		console.log(aaa);</span><br><span class="line">	&#125;</span><br><span class="line">	var aaa = 123;</span><br><span class="line">	return b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var glob = 100;</span><br><span class="line">var demo = a();</span><br><span class="line">demo();   // 123</span><br></pre></td></tr></table></figure></p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ol>
+<li>描述心中的对象</li>
+<li><p>属性的增删改查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var mrWang = &#123;</span><br><span class="line">	name: &apos;wang steven&apos;,</span><br><span class="line">	age: 30,</span><br><span class="line">	sex: &apos;male&apos;,</span><br><span class="line">	health: 100,</span><br><span class="line">	smoke: function() &#123;</span><br><span class="line">		console.log(&apos;I am smoking! cool!&apos;);</span><br><span class="line">		this.health --;</span><br><span class="line">	&#125;,</span><br><span class="line">	drink: function() &#123;</span><br><span class="line">		console.log(&apos;I am drinking!&apos;);</span><br><span class="line">		this.health ++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mrWang.wife = &apos;missMa&apos;; // 增</span><br><span class="line">mrWang.sex = &apos;female&apos;; // 改</span><br><span class="line">delete mrWang.name; // 删</span><br><span class="line">console.log(mrWang.age); // 查</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的创建方法<br>字面量<br>构造函数 –系统自带 new Object();Array();Number();Boolean();String();Date();<br>Object.create(原型)方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125; // 对象字面量/对象直接量</span><br><span class="line">var obj1 = new Object(); // 系统自带的构造函数创建对象</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构造函数内部原理<br>在函数体最前面隐式的加上<code>this = {}</code><br>执行<code>this.xxx = xxx</code><br>隐式的返回<code>this</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, height) &#123;</span><br><span class="line">	// var this = &#123;&#125;;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.height = height;</span><br><span class="line">	this.say = function () &#123;</span><br><span class="line">		console.log(this.say);</span><br><span class="line">	&#125;</span><br><span class="line">	// return this;</span><br><span class="line">&#125;</span><br><span class="line">console.log(new Person(&apos;wang&apos;, 180).name);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>包装类<br><code>new String();</code><br><code>new Boolean();</code><br><code>new Number();</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var num = new Number(123);</span><br><span class="line">num.len = 4; // 包装类可以设置属性</span><br><span class="line">var num1 = 234;</span><br><span class="line">num.len = 3; // 字面量设置属性无效</span><br><span class="line">var str = new String(&apos;abc&apos;);</span><br><span class="line">var bool = new Boolean(&apos;true&apos;);</span><br><span class="line"></span><br><span class="line">var str = &quot;abc&quot;;</span><br><span class="line">str += 1;</span><br><span class="line">var test = typeof(str);</span><br><span class="line">if (test.length == 6) &#123;</span><br><span class="line">	test.sign = &apos;typeof 返回的结果可能是string&apos;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(test.sign);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><ol>
+<li><p>定义： 原型是function对象的一个属性，它定义了构造函数制作出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法。原型也是属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// Person.prototype = &#123;&#125;; 原型</span><br><span class="line">Person.prototype.name = &apos;hehe&apos;;</span><br><span class="line">function Person() &#123;</span><br><span class="line">&#125;</span><br><span class="line">var person = new Person();</span><br><span class="line">var person1 = new Person();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用原型特点和概念，可以提取公共属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype.name = &apos;hehe&apos;;</span><br><span class="line">Person.prototype.say = function() &#123;</span><br><span class="line">	console.log(&apos;hehe&apos;);</span><br><span class="line">&#125;</span><br><span class="line">function Person() &#123;</span><br><span class="line">	this.name = &apos;wang&apos;;</span><br><span class="line">&#125;</span><br><span class="line">var person = new Person();</span><br><span class="line">var person1 = new Person();</span><br><span class="line"></span><br><span class="line">Person.prototype.say = function() &#123;</span><br><span class="line">	console.log(&apos;say&apos;);</span><br><span class="line">&#125;</span><br><span class="line">function Person(name, age) &#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">var person = new Person(&apos;wang&apos;, 30);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象如何查看原型 –&gt; 隐式属性 <strong>proto</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Person() &#123;</span><br><span class="line">	//var this = &#123;</span><br><span class="line">	//	  __proto__: Person</span><br><span class="line">	//&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象如何查看对象的构造函数 –&gt; constructor</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function Person() &#123;</span><br><span class="line">&#125;</span><br><span class="line">Car.prototype = &#123;</span><br><span class="line">	constructor: Person.prototype</span><br><span class="line">&#125;</span><br><span class="line">functio Car() &#123;</span><br><span class="line">&#125;</span><br><span class="line">var car = new Car();</span><br><span class="line"></span><br><span class="line">Grand.prototype.lastName = &apos;wang&apos;;</span><br><span class="line">function Grand() &#123;&#125;</span><br><span class="line">var grand = new Grand();</span><br><span class="line">Father.prototype = grand;</span><br><span class="line">function Father() &#123;</span><br><span class="line">	this.name = &apos;xiaoming&apos;;</span><br><span class="line">	this.num = 100;</span><br><span class="line">&#125;</span><br><span class="line">var father = new Father();</span><br><span class="line">Son.prototype = father;</span><br><span class="line">function Son() &#123;</span><br><span class="line">	this.hobbit = &apos;smoke&apos;;</span><br><span class="line">&#125;</span><br><span class="line">var son = new Son();</span><br><span class="line">son.num ++;</span><br><span class="line">console.log(son.num); // 101</span><br><span class="line">console.log(father.num); // 100</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><ol>
+<li>如何构成原型链</li>
+<li>原型链上属性的增删改查</li>
+<li>绝大多数对象的最终都会继承自<code>Object.prototype</code></li>
+<li><code>Object.create(原型)</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call(123); // &quot;[object Number]&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="call-apply"><a href="#call-apply" class="headerlink" title="call/apply"></a>call/apply</h2><p>作用：改变this指向<br>区别：传的参数形式不同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line">	// var this = obj;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">var person = new Person(&apos;wang&apos;, 100);</span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line">Person.call(obj);</span><br><span class="line">Person.call(obj, &apos;chen&apos;, 300);</span><br><span class="line">// test() --&gt; test.call()</span><br><span class="line"></span><br><span class="line">function Person(name, age) &#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">function Student(name, age, sex, tel, grade) &#123;</span><br><span class="line">	Person.call(this, name, age);</span><br><span class="line">	// Person.apply(this, [name, age]);</span><br><span class="line">	this.sex = sex;</span><br><span class="line">	this.tel = tel;</span><br><span class="line">	this.grade = grade;</span><br><span class="line">&#125;</span><br><span class="line">var student = new Student(&apos;wang&apos;, 30, &apos;male&apos;, 123, 2017);</span><br></pre></td></tr></table></figure></p>
+<h2 id="继承发展史"><a href="#继承发展史" class="headerlink" title="继承发展史"></a>继承发展史</h2><ol>
+<li><p>传统形式 –&gt; 原型链<br>过多的继承了没用的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Grand.prototype.lastName = &apos;js&apos;;</span><br><span class="line">function Grand() &#123;</span><br><span class="line">&#125;</span><br><span class="line">var grand = new Grand();</span><br><span class="line">Father.prototype = grand();</span><br><span class="line">function Father() &#123;</span><br><span class="line">	this.name = &apos;hehe&apos;;</span><br><span class="line">&#125;</span><br><span class="line">var father = new Father();</span><br><span class="line">Son.prototype = father;</span><br><span class="line">function Son() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>借用构造函数<br>不能继承借用构造函数的原型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age, sex) &#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.age = age;</span><br><span class="line">	this.sex = sex;</span><br><span class="line">&#125;</span><br><span class="line">function Student(name, age, sex, grade) &#123;</span><br><span class="line">	Person.call(this, name, age, sex);</span><br><span class="line">	this.grade = grade;</span><br><span class="line">&#125;</span><br><span class="line">var student = new Student(&apos;wang&apos;, 100, &apos;male&apos;, &apos;2018&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>每次构造函数都要多走一个函数</p>
+<ol start="3">
+<li><p>共享原型<br>不能随便改动自己的原型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Father.prototype.lastName = &apos;wang&apos;;</span><br><span class="line">function Father() &#123;</span><br><span class="line">&#125;</span><br><span class="line">function Son() &#123;</span><br><span class="line">&#125;</span><br><span class="line">Son.prototype = Father.prototype;</span><br><span class="line">var son = new Son();</span><br><span class="line">var father = new Father();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>圣杯模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Father.prototype.lastName = &apos;wang&apos;;</span><br><span class="line">function Father() &#123;</span><br><span class="line">&#125;</span><br><span class="line">function Son() &#123;</span><br><span class="line">&#125;</span><br><span class="line">function inherit(target, origin) &#123;</span><br><span class="line">	var F = function() &#123;&#125;</span><br><span class="line">	F.protoytype = origin.prototype;</span><br><span class="line">	target.prototype = new F();</span><br><span class="line">	target.prototype.constructor = target;</span><br><span class="line">	target.prototype.uber = origin.prototype;</span><br><span class="line">&#125;</span><br><span class="line">inherit(Son, Father);</span><br><span class="line">var son = new Son();</span><br><span class="line">var father = new Father();</span><br><span class="line"></span><br><span class="line">// YUI3</span><br><span class="line">var inherit = (function() &#123;</span><br><span class="line">	var F = function() &#123;&#125;;   // 属性私有化</span><br><span class="line">	return function(target, origin) &#123;</span><br><span class="line">		F.prototype = origin.prototype;</span><br><span class="line">		target.prototype = new F();</span><br><span class="line">		target.prototype.constructor = target;</span><br><span class="line">		target.prototype.uber = origin.prototype;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;())</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p>管理变量，防止污染全局，适用于模块化开发<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var init = (function() &#123;</span><br><span class="line">	var name = &apos;abc&apos;;</span><br><span class="line">	function callName() &#123;</span><br><span class="line">		console.log(name);</span><br><span class="line">	&#125;</span><br><span class="line">	return function() &#123;</span><br><span class="line">		callName();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;())</span><br></pre></td></tr></table></figure></p>
+<h2 id="属性的表示方法"><a href="#属性的表示方法" class="headerlink" title="属性的表示方法"></a>属性的表示方法</h2><p><code>obj.prop</code><br><code>obj[&#39;prop&#39;]</code></p>
+<h2 id="对象的枚举"><a href="#对象的枚举" class="headerlink" title="对象的枚举"></a>对象的枚举</h2><p><code>for in</code><br><code>hasOwnProperty</code><br><code>in</code><br><code>instanceof</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name: &apos;wang&apos;;</span><br><span class="line">	age: 100,</span><br><span class="line">	sex: &apos;male&apos;&apos;</span><br><span class="line">	weight: 123,</span><br><span class="line">	hegith: 180,</span><br><span class="line">	__proto__: &#123;</span><br><span class="line">		lastName: &apos;deng&apos;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">for (var prop in obj) &#123;</span><br><span class="line">	console.log(obj[&apos;prop&apos;]);</span><br><span class="line">	if (obj.hasOwnProperty(prop)) &#123;</span><br><span class="line">		console.log(obj[&apos;prop&apos;])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// A 对象是不是 B构造函数构造出来的</span><br><span class="line">// 看A原型链上有没有B 的原型</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/pay-weixin.jpg" alt="steven.wang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay-zhifubao.jpg" alt="steven.wang 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/web/web_topic_01/" rel="next" title="前端面试集锦">
+                <i class="fa fa-chevron-left"></i> 前端面试集锦
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars2.githubusercontent.com/u/4902693"
+                alt="steven.wang" />
+            
+              <p class="site-author-name" itemprop="name">steven.wang</p>
+              <p class="site-description motion-element" itemprop="description">我是一名前端工程师，专注学习各种编程语言</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/StevenStar" target="_blank" title="GitHub"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#web发展史"><span class="nav-number">1.</span> <span class="nav-text">web发展史</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习-JS"><span class="nav-number">2.</span> <span class="nav-text">学习 JS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS-介绍"><span class="nav-number">2.1.</span> <span class="nav-text">JS 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS-基本语法"><span class="nav-number">2.2.</span> <span class="nav-text">JS 基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件语句"><span class="nav-number">2.3.</span> <span class="nav-text">条件语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件语句补充"><span class="nav-number">2.4.</span> <span class="nav-text">条件语句补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初识引用值"><span class="nav-number">2.5.</span> <span class="nav-text">初识引用值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程形式的区别"><span class="nav-number">2.6.</span> <span class="nav-text">编程形式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeof"><span class="nav-number">2.7.</span> <span class="nav-text">typeof</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">2.8.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">2.9.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">2.10.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.11.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域精解"><span class="nav-number">2.12.</span> <span class="nav-text">作用域精解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">2.13.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型"><span class="nav-number">2.14.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">2.15.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call-apply"><span class="nav-number">2.16.</span> <span class="nav-text">call/apply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承发展史"><span class="nav-number">2.17.</span> <span class="nav-text">继承发展史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间"><span class="nav-number">2.18.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性的表示方法"><span class="nav-number">2.19.</span> <span class="nav-text">属性的表示方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的枚举"><span class="nav-number">2.20.</span> <span class="nav-text">对象的枚举</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">true</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://stevenstar.github.io/client/javascript/js_topic_01/';
+        this.page.identifier = 'client/javascript/js_topic_01/';
+        this.page.title = 'JS 学习笔记';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
